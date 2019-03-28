@@ -5,6 +5,15 @@ body {
 
 p { margin: 0px!important; }
 
+h1 {
+    color: #fff;
+    position: absolute;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-family: Lato;
+    font-size: 66px;
+}
+
 #mainContainer {
     top: 50vh;
     left: 50vw;
@@ -87,6 +96,29 @@ p { margin: 0px!important; }
     z-index: 999999;
     position: absolute;
     transform: translate(-50%,-50%);
+}
+
+.inputButton {
+    left: 0px;
+    transform: translateX(0);
+    top: 0;
+    width: 100%;
+    position: static;
+}
+
+.inputButton > span {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.inputButton > input {
+    width: 60%;
+    left: 0;
+    transform: translate(0);
+    display: inline-block;
+    position: static;
+    vertical-align: middle;
 }
 
 .rightSounds {

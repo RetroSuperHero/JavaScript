@@ -18,8 +18,8 @@ window.onload = function() {
     setArrays();
     setEvents();
     //grid = [[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,1,0,0,1,0,0,0],[0,1,0,0,0,0,1,0],[0,0,1,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,0,0,1,0],[0,0,1,0,0,1,0,0],[0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0],[0,0,1,0,1,1,0,0]];
-    //grid = [[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,1,1],[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,0,0],[0,0,0,0,1,0,1,0],[1,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,0],[0,1,0,0,0,0,0,1],[0,1,0,0,0,0,1,0],[0,0,1,1,0,0,1,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,1,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];
-    grid = [[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,1,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];//WOLNO
+    grid = [[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,1,1],[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,0,0],[0,0,0,0,1,0,1,0],[1,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,0],[0,1,0,0,0,0,0,1],[0,1,0,0,0,0,1,0],[0,0,1,1,0,0,1,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,1,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];
+    taskGrid = [[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,1,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];//WOLNO
     showBoxes();
 }
 
@@ -27,6 +27,10 @@ window.onload = function() {
 //Funkcja znajdująca index elementu
 function elementIndex(element) {
     return element === this;
+}
+
+function submit() {
+    window.alert(JSON.stringify(grid) === JSON.stringify(taskGrid));
 }
 
 //Funkcja odtwarzająca dzwięki
@@ -37,9 +41,40 @@ function playSound(sound) {
     audio.play();
 }
 
+//Funkcja grająca muzykę bez grafiki
+function taskPlay() {
+    playBtn = document.getElementsByClassName('taskPlay')[0].getElementsByTagName('p')[0];
+    if(!playing) {
+        playBtn.textContent = "TASKPAUSE";
+        resetPointer();
+        let start = 0;
+        interval = setInterval(function() {
+            for(var i=0;i<instrumentsNumber;++i) {
+                if(taskGrid[start][i]) {
+                    playSound(instruments[i]);
+                }
+            }
+            if((start+1)%columnsNumber == 0) {
+                playBtn.textContent = "TASKPLAY";
+                playing = false;
+                clearInterval(interval);
+            }
+            start = (start + 1);
+        }, speed);
+        playing = true;
+    } else {
+        playBtn.textContent = "TASKPLAY";
+        clearInterval(interval);
+        playing = false;
+        resetPointer();
+    }
+}
+
 //Funkcja włączająca muzykę
 function playMusic() {
+    playBtn = document.getElementsByClassName('play')[0].getElementsByTagName('p')[0];
     if(!playing) {
+        playBtn.textContent = "PAUSE";
         resetPointer();
         let start = 0;
         interval = setInterval(function() {
@@ -58,6 +93,7 @@ function playMusic() {
         }, speed);
         playing = true;
     } else {
+        playBtn.textContent = "PLAY";
         clearInterval(interval);
         playing = false;
         resetPointer();
@@ -148,6 +184,12 @@ function setEvents() {
     
     const randomCount = document.querySelector('#randomCount');
     randomCount.addEventListener('input', changeRandom);
+    
+    const taskPlayBtn = document.querySelector('.taskPlay');
+    taskPlayBtn.addEventListener('click', taskPlay);
+    
+    const submitBtn = document.querySelector('.submit');
+    submitBtn.addEventListener('click', submit);
     
     function changeRandom() {
         if(mouseDown) {
