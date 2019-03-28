@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href=""/>
+</head>
+<body>
+    <div class="backgroundContainer">
+        <div class="backgroundPhoto"></div>
+    </div>
+    <div id="quizContainer">
+        <div class="menuContainer" style="height: 100%;">
+            <div class="photoContainerMenu">
+                <h2 class="bigTextMenu">Kategorie</h2>
+            </div>
+            <div class="questionContainer">
+                <p class="mitologia">Mitologia</p>
+                <p class="dodaj">Mitologia</p>
+            </div>
+        </div>
+        <div class="gameContainer">
+            <div class="photoContainer">
+                <h2 class="bigText">Pytanie <span class="questionNumber">1</span></h2>
+            </div>
+            <div class="questionContainer">
+                <p class="category">Kategoria: <span></span></p>
+                <p class="question"></p>
+                <p class="answer" data-number="0"></p>
+                <p class="answer" data-number="1"></p>
+                <p class="answer" data-number="2"></p>
+                <p class="answer" data-number="3"></p>
+            </div>
+            <div class="barContainer">
+                <div class="bar"></div>
+                <p class="timeLeft"></p>
+            </div>
+        </div>
+        <div class="addContainer">
+            <div class="photoContainerAdd">
+                <input class="photoSrc" />
+                <h2 class="bigTextAdd">Dodaj</h2>
+            </div>
+            <div class="questionContainer">
+                <p class="category">Kategoria: 
+                    <select id="categories" name="categories">
+                        <option value="0">Mitologia</option>
+                    </select>
+                </p>
+                <p class="newQuestion"><input placeholder="Pytanie jak nalepiej opisujące problem" /></p>
+                <p class="newAnswer" data-number="0"><input placeholder="Odpowiedź 1" /><input type="radio" name="a"/></p>
+                <p class="newAnswer" data-number="1"><input placeholder="Odpowiedź 2" /><input type="radio" name="a"/></p>
+                <p class="newAnswer" data-number="2"><input placeholder="Odpowiedź 3" /><input type="radio" name="a"/></p>
+                <p class="newAnswer" data-number="3"><input placeholder="Odpowiedź 4" /><input type="radio" name="a"/></p>
+                <button id="add">Dodaj</button>
+            </div>
+            <div class="barContainer">
+                <div class="bar"></div>
+                <p class="timeLeft"></p>
+            </div>
+        </div>
+    </div>
+</body>    
+<script src="scripts.js"></script>
+</html>

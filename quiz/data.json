@@ -1,0 +1,49 @@
+[
+    { 
+        "id":"0",
+        "category":"Mitologia",
+        "questions": [
+            {
+                "image":"https://samequizy.pl/wp-content/uploads/2015/12/filing_images_774fbe8ed048.jpg",
+                "question":"Bóg uważany za boga nieba i boga wszystkich bogów to",
+                "answers": ["Zeus", "Posejdon", "Afrodyta", "Hades"],
+                "correct":"0",
+                "added":"09.06.2018",
+                "author":"Eryk Sikora"
+            },
+            {
+                "image":"https://vignette.wikia.nocookie.net/greekmythology/images/d/d4/OSPREY-Jason-Harpies_150ppp_blog.jpg/revision/latest?cb=20151211073516",
+                "question":"Rodzeństwo Zeusa to",
+                "answers": ["Posejdon, Hera, Demeter, Hades", "Posejdon, Hera, Demeter, Hades", "Posejdon, Demeter, Hades, Apollo", "Hades"],
+                "correct":"0",
+                "added":"09.06.2018",
+                "author":"Eryk Sikora"
+            },
+            {
+                "image":"https://vignette.wikia.nocookie.net/greekmythology/images/d/d4/OSPREY-Jason-Harpies_150ppp_blog.jpg/revision/latest?cb=20151211073516",
+                "question":"Jak powstał świat wg mitów greckich",
+                "answers": ["Na początku był chaos, a z chaosu wyłoniła się Gaja i Uranos", "Na początku było niebo, a z nieba wyłoniła się Gaja, a niebem był Uranos", "Powstał z potęgi Zeusa", "Nie wiem"],
+                "correct":"0",
+                "added":"09.06.2018",
+                "author":"Eryk Sikora"
+            },
+            {
+                "image":"https://vignette.wikia.nocookie.net/greekmythology/images/d/d4/OSPREY-Jason-Harpies_150ppp_blog.jpg/revision/latest?cb=20151211073516",
+                "question":"Jak nazywał się bóg sztuki i piękna",
+                "answers": ["Apollo", "Hermes", "Hera", "Hades"],
+                "correct":"0",
+                "added":"09.06.2018",
+                "author":"Eryk Sikora"
+            },
+            {
+                "image":"https://vignette.wikia.nocookie.net/greekmythology/images/d/d4/OSPREY-Jason-Harpies_150ppp_blog.jpg/revision/latest?cb=20151211073516",
+                "question":"Najtrudniejsze zadanie Herkulesa to",
+                "answers": ["Wielogłowa Hydra", "Stajnia Augiasza", "Złote jabłka z ogrodu", "Twoja stara"],
+                "correct":"0",
+                "added":"09.06.2018",
+                "author":"Eryk Sikora"
+            }
+        ]
+    }
+]
+

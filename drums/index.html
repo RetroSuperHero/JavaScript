@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drums</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+    <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/audio-icons-rounded/110/Drums-512.png"/>
+</head>
+<body>
+    <!-- TMP -->
+    <div id="mainContainer">
+        <div class="leftButtons">
+            <div class="play button">
+                <p class="buttonName">PLAY</p>
+            </div>
+            <div class="button">
+                <p class="buttonName">
+                    <input id="speedCount" class="buttonName" type="range" name="blur" min="100" max="300" step="10" value="150">
+                </p>
+            </div>
+            <div class="random button">
+                <p class="buttonName">RANDOM</p>
+            </div>
+            <div class="button">
+                <p class="buttonName">
+                    <input id="randomCount" class="buttonName" type="range" name="blur" min="1" max="15" step="1" value="6">
+                </p>
+            </div>
+            <div class="restart button">
+                <p class="buttonName">RESTART</p>
+            </div>
+            <div class="restart button">
+                <p class="buttonName">RESTART</p>
+            </div>
+            <div class="restart button">
+                <p class="buttonName">RESTART</p>
+            </div>
+            <div class="restart button">
+                <p class="buttonName">RESTART</p>
+            </div>
+        </div>
+        <div class="mixerContainer">
+        </div>
+        <!-- TMP -->
+        <div class="rightSounds">
+            <div class="sound" style="width: calc(100% - 3px); background: rgb(51, 51, 51) none repeat scroll 0% 0%; margin: 6px; height: 44px;">
+                <p class="buttonName">CRASH</p>
+                <div class="soundBar crash"></div>
+            </div>
+            <div class="sound" style="width: calc(100% - 3px);background: #333;margin: 6px;">
+                <p class="buttonName">HI TOM</p>
+                <div class="soundBar hi_tom"></div>
+            </div>
+            <div class="sound" style="width: calc(100% - 3px);background: #333;margin: 6px;">
+                <p class="buttonName">LOW TOM</p>
+                <div class="soundBar low_tom"></div>
+            </div>
+            <div class="sound" style="width: calc(100% - 3px);background: #333;margin: 6px;">
+                <p class="buttonName">OPENHAT</p>
+                <div class="soundBar openhat"></div>
+            </div>
+            <div class="sound" style="width: calc(100% - 3px);background: #333;margin: 6px;">
+                <p class="buttonName">HIHAT</p>
+                <div class="soundBar hihat"></div>
+            </div>
+            <div class="sound" style="width: calc(100% - 3px);background: #333;margin: 6px;">
+                <p class="buttonName">KICK</p>
+                <div class="soundBar kick"></div>
+            </div>
+            <div class="sound" style="width: calc(100% - 3px);background: #333;margin: 6px;">
+                <p class="buttonName">SNARE</p>
+                <div class="soundBar snare"></div>
+            </div>
+            <div class="sound" style="width: calc(100% - 3px);background: #333;margin: 6px;">
+                <p class="buttonName">COWBELL</p>
+                <div class="soundBar cowbell"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152731169/sounds/crash.wav" data-instrument="crash" preload="auto"></audio>
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152731310/sounds/hi_tom.wav" data-instrument="hi_tom" preload="auto"></audio>
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152731342/sounds/low_tom.wav" data-instrument="low_tom" preload="auto"></audio>
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152730582/sounds/openhat.wav" data-instrument="openhat" preload="auto"></audio>
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152730733/sounds/hihat.wav" data-instrument="hihat" preload="auto"></audio>
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152730307/sounds/kick.wav" data-instrument="kick" preload="auto"></audio>
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152730770/sounds/snare.wav" data-instrument="snare" preload="auto"></audio>
+    <audio src="https://res.cloudinary.com/thepeted/video/upload/v152730968/sounds/cowbell.wav" data-instrument="cowbell" preload="auto"></audio>
+</body>
+</html>

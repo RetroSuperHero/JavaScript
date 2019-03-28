@@ -1,0 +1,181 @@
+body {
+    background: #2a2b32;
+    overflow: hidden;
+}
+
+.backgroundContainer {
+    filter: blur(3px);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+}
+
+.backgroundPhoto {
+    background-image: url('./images/custom.jpg'); 
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-position: 50%;
+}
+
+#quizContainer {
+    width: 50vh;
+    height: 70vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 0.7vh;
+    overflow: hidden;
+    opacity: 0;
+    top: 150vh;
+    transition: ease 1s;
+}
+
+.gameContainer, .addContainer {
+    display: none;
+    height: 100%;
+    transition: ease 1s;
+}
+
+.photoContainer, .photoContainerAdd {
+    width: 100%;
+    height: 40%;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    background-position: 50%;
+}
+
+.photoContainerAdd {
+    background-image: url('./images/custom.jpg');
+}
+
+.photoContainerMenu {
+    width: 100%;
+    height: 20%;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    background-position: 50%;
+    background-image: url('./images/custom.jpg');
+}
+
+.photoContainer > h2, .photoContainerMenu > h2, .photoContainerAdd > h2 {
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: Lato;
+    bottom: -1.9vh;
+    margin: 0px;
+    font-size: 6vh;
+    text-shadow: 0px 0px 10px #000;
+}
+
+.questionContainer {
+    width: 100%;
+    height: 60%;
+}
+
+.category {
+    font-family: Lato;
+    color: #979797;
+    padding: 0.7vh calc(10% + 1.05vh) 0;
+    text-align: left;
+    margin-bottom: -2.7vh;
+    font-size: 1.75vh;
+}
+
+.question, .newQuestion {
+    font-family: Lato;
+    color: #615a5a;
+    padding: 0.7vh calc(10% + 1.05vh) 0;
+    text-align: left;
+    margin-bottom: 1.35vh;
+    font-size: 2.15vh;
+}
+
+.newQuestion > input {
+    font-family: Lato;
+    color: #615a5a;
+    text-align: left;
+    border: 0px;
+    font-size: 2.15vh;
+    width: 100%;
+}
+
+.answer, .newAnswer {
+    font-family: Lato;
+    margin: 0px;
+    padding: 0.95vh calc(10% + 1.05vh);
+    color: #6e6a6a;
+    cursor: pointer;
+    border: 1px solid #0000;
+    font-size: 1.9vh;
+    transition: ease .2s;
+}
+
+.newAnswer > input:nth-child(1) {
+    font-family: Lato;
+    color: #6e6a6a;
+    border: 0px;
+    font-size: 1.9vh;
+    width: 90%;
+    transition: ease .2s;
+}
+
+.answer:hover, .newAnswer:hover {
+    background: #f9f9f9;
+    border: 1px solid #efefef;
+}
+
+.newAnswer:hover > input:nth-child(1)  {
+    background: #f9f9f9;
+}
+
+.barContainer {
+    height: 0.7vh;
+    width: 102%;
+    background: #f9f9f9;
+    border: 1px solid #efefef;
+    left: -1%;
+    position: absolute;
+    bottom: -1px;
+}
+
+.bar {
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(to right, #ff9966, #ff5e62); 
+    transition: all 1s linear 0s;
+}
+
+.timeLeft {
+    position: absolute;
+    top: -40px;
+    font-family: Lato;
+    right: 15px;
+}
+
+.right {
+    background: #bada55!important;
+    color: #fff!important;
+}
+
+.wrong {
+    background: rgb(233, 125, 96)!important;
+    color: #fff!important;
+}
+
+select {
+    border: 0px;
+    font-family: Lato;
+    font-size: 1.75vh;
+    color: #979797;
+    margin-left: -2px;
+}

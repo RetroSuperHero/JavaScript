@@ -1,0 +1,71 @@
+<html>
+	<head>
+        <meta charset="utf8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="style.css">
+        <title>MyChat</title>
+        <link rel="icon" href="http://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/chat-2-icon.png"/>
+	</head>
+	<body>
+        <div id="wholeChat">
+            <!-- Bubbles -->
+            <div id="openChats"></div>
+            
+            <!-- Acoount settings -->
+            <div class="perspective">
+                <div id="me" class="smallMainbox hide">
+                    <div class="avatar"></div>
+                    <div class="options">
+                        <div id="settings" class="closeSettings">
+                            <input id="changeLogo" placeholder="Zmień logo (url)"/>
+                            <input id="changeName" placeholder="Zmień nazwę"/>
+                            <input id="changeEmail" placeholder="Zmień email"/>
+                            <input id="changeDesc" placeholder="Zmień opis"/>
+                            <input id="getMessage" placeholder="Dostań wiadomość"/>
+                        </div>
+                        <div id="openSettings">Ustawienia</div>
+                        <div>Wyloguj</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Friends -->
+            <div class="perspective">
+                <div id="chats" class="smallMainbox hide">
+                    <h1>Twoi znajomi:</h1>
+                    <input class="searchFriends" placeholder="Szukaj...">
+                </div>
+            </div>
+
+            <!-- Chat box --->
+            <div id="mainChat">
+                <div class="chatHeader">
+                    <div class="chatName">
+                        <h1></h1>
+                        <h2></h2>
+                    </div>
+                    <div id="toggleMenu">
+                        <!-- TMP -->
+                        <img src="https://cdn2.iconfinder.com/data/icons/flaticons-stroke/16/minimize-1-512.png" style="opacity: .4;width: 20px;float: right;margin-top: -65px;margin-right: 18px;">
+                    </div>
+                    <div id="minimalize">
+                        <!-- TMP -->
+                        <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/331713-200.png" style="opacity: .4;width: 20px;float: right;margin-top: -38px;margin-right: 18px;">
+                    </div>
+                </div>
+                <div id="chatMain">
+                </div>
+                <div id="chatInput">
+                    <input id="input" placeholder="Wiadomość"/>
+                    <!-- TMP -->
+                    <button onclick="send()"><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/375869-200.png" style="width: 35px;vertical-align: middle;opacity: .4;"></button>
+                </div>
+            </div>
+        </div>
+	</body>
+    <audio src="newMessage.mp3"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="data.js"></script>
+    <script src="scripts.js"></script>
+</html>

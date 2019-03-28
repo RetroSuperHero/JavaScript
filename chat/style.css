@@ -1,0 +1,374 @@
+::-moz-selection {
+    color: white;
+	background: #96e6a1;
+}
+
+::selection {
+    color: white;
+	background: #96e6a1;
+}
+
+body {
+    transition: ease 1s;
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+
+#wholeChat {
+    opacity: 0;
+    position: absolute;
+    right: 165px;
+    bottom: 180px;
+    transform: scale(.7);
+    transition: ease 1s;
+}
+
+.smallMainbox {
+    background: #fff;
+    width: 180px;
+    height: 350px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px #0002;
+    top: 50%;
+    position: absolute;
+    padding: 20px;
+    transition: ease 1s;
+}
+
+.hide {
+    left: 50%!important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.perspective {
+    perspective: 250px;
+}
+
+#me {
+    height: 332px!important;
+    border-radius: 10px 0 0 10px;
+    left: calc(50% - 290px);
+    transform: rotateY(3deg) translate(-50%, -50%);
+}
+
+#chats {
+    border-radius: 0 10px 10px 0;
+    left: calc(50% + 315px);
+    transform: rotateY(-3deg) translate(-50%, -50%);
+}
+
+#mainChat {
+    background: #fafafa;
+    width: 400px;
+    height: 450px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #0002;
+    transition: ease 1s;
+}
+
+.chatHeader {
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    box-shadow: 0px 0px 5px #0002;
+    position: absolute;
+    z-index: 999;
+}
+
+.chatAvatar, .avatar > div, .openChatAvatar {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 15px;
+    position: relative;
+}
+
+.chatAvatar > p, .avatar > div  > p, .openChatAvatar > p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -45%);
+    color: #fff;
+    font-family: Lato;
+    font-size: 25px;
+    margin: 0px;
+}
+
+.openChatAvatar {
+    width: 70px;
+    height: 70px;
+    border: 0px solid #fff;
+    margin: 5px;
+    box-shadow: 0px 0px 10px #0002;
+}
+
+.openChatAvatar, #toggleMenu > img, #minimalize > img, #openSettings {
+    cursor: pointer;
+    transition: ease .5s;
+}
+
+.openChatAvatar:hover {
+    transform: scale(.85);
+}
+
+#openChats {
+    position: absolute;
+    left: -250px;
+    width: 85px;
+    top: -225px;
+    margin-top: 225px;
+    transform: translateY(-50%);
+    transition: ease .5s;
+}
+
+#openChats:hover {
+    left: -290px !important;
+}
+
+.avatar > div {
+    left: 50%;
+    transform: translateX(-71%);
+}
+
+.chatName {
+    width: 300px;
+    display: inline-block;
+    height: 50px;
+    vertical-align: top;
+    margin: 15px 0;
+}
+
+.chatName > h1, #chats > h1 {
+    margin: 0px;
+    font-size: 20px;
+    font-family: Lato;
+    top: 22px;
+    text-transform: uppercase;
+    color: #777777;
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+#chats > h1 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.chatName > h2 {
+    margin: 0px;
+    font-size: 15px;
+    font-family: Lato;
+    color: #000;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-top: 1px;
+    letter-spacing: .5px;
+}
+
+#chatMain {
+    height: 280px;
+    padding: 20px;
+    overflow-y: scroll;
+    width: calc(100% - 20px);
+    margin-top: 70px;
+}
+
+#chatMain > div > p {
+    background: #fff;
+    clear: both;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #f3f3f3;
+    vertical-align: top;
+    margin-top: 7px;
+    max-width: calc(100% - 65px);
+    margin-left: 5px;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.textAvatar {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 7px;
+    position: relative;
+    margin-left: -10px;
+}
+
+.textAvatar > p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -45%);
+    color: #fff;
+    font-family: Lato;
+    font-size: 25px;
+    margin: 0px;
+}
+
+#chatMain > div > h5 {
+    font-family: Lato;
+    font-weight: 100;
+    color: #777;
+    font-size: 10px;
+    margin: -13px 12px -5px 55px;
+}
+
+#chatInput {
+    margin-top: 15px;
+    box-shadow: 0px 0px 5px #0002;
+}
+
+#input {
+    width: 85%;
+    height: 45px;
+    border: 0px;
+    padding: 10px 10px 10px 20px;
+    font-family: Lato;
+    color: #777;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+button {
+    display: inline-block;
+    width: 15%;
+    height: 45px;
+    border: 0px;
+    background: #fff;
+    padding: 0 7px 0 0;
+    margin-left: -4px;
+}
+
+#chats > div > div {
+    border-bottom: 1px solid #efefef;
+    padding: 1px 9px;
+    cursor: pointer;
+    transition: ease .5s;
+    width: 115%;
+    margin-left: -20px;
+    position: relative;
+}
+
+#chats > div > div > h2 {
+    font-size: 14px;
+    font-family: Lato;
+    color: #777777;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#chats > div > div > h3 {
+    font-family: Lato;
+    font-size: 10px;
+    position: absolute;
+    top: 0;
+    right: 17px;
+    background: #fff;
+    padding-left: 15px;
+    transition: ease .5s;
+}
+
+#chats > div > div > p {
+    font-family: Lato;
+    font-size: 10px;
+    background: #fff;
+    padding-left: 10px;
+    transition: ease .5s;
+    margin-top: -5px;
+    color: #777;
+}
+
+
+#chats > div > div:hover,
+#chats > div > div:hover > h3, 
+#chats > div > div:hover> p {
+    background: #fafafa;
+}
+
+.infoContainer {
+    text-align: center;
+    font-family: Lato;
+    color: #888;
+}
+
+.myName {
+    font-size: 19px;
+    margin: -3px 0 0 0;
+    padding-left: 10px;
+}
+
+.myEmail {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 100;
+    padding-left: 10px;
+    margin: 3px 0 0 0;
+}
+
+.options {
+    margin-top: 15px;
+}
+
+.options > div {
+    font-family: Lato;
+    color: #777;
+    font-weight: 300;
+    text-align: center;
+    margin: 3px;
+}
+
+.searchFriends {
+    border: 0px;
+    border-bottom: 1px solid #eae4e4;
+    width: 120%;
+    margin-bottom: 10px;
+    margin-left: -15px;
+    color: #777;
+    font-family: Lato;
+    padding: 7px 0 10px 15px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#settings {
+    height: 130px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: ease .5s;
+}
+
+#changeName, #changeLogo, #changeEmail, #changeDesc, #getMessage {
+    width: 100%;
+    border: 0px;
+    text-align: center;
+    font-weight: 300;
+    font-family: Lato;
+    font-size: 15px;
+    margin-left: 4px;
+    margin-bottom: 7px;
+}
+
+/* Animation */
+.down { bottom: 50px!important; }
+.minimalize { height: 80px!important; }
+.disappear { display: none; }
+.appear { opacity: 1!important; }
+.move { right: 320px!important; }
+.closeSettings { height: 0px!important; }
