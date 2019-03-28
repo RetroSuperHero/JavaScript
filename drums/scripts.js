@@ -30,11 +30,15 @@ function elementIndex(element) {
 }
 
 function submit() {
-    window.alert(JSON.stringify(grid) === JSON.stringify(taskGrid));
+    if(JSON.stringify(grid) === JSON.stringify(taskGrid))
+        window.alert("Udało Ci się!");
+    else 
+        window.alert("Spróbuj jeszcze raz!");
 }
 
 function showTask() {
-    grid = taskGrid;
+    for (let i=0; i <grid.length; i++)
+        grid[i] = taskGrid[i].slice();
     showBoxes();
 }
 
