@@ -116,6 +116,7 @@ h1 {
 }
 
 .inputButton > input {
+    height: 5px;
     width: 60%;
     left: 0;
     transform: translate(0);
