@@ -1,5 +1,6 @@
 body {
-    background: #000;
+    background-image: url('https://hacknarok.eestec.agh.edu.pl/assets/img/header-bg.85984f34.jpg');
+    background-size: cover;
     overflow: hidden;
 }
 
@@ -9,9 +10,11 @@ h1 {
     color: #fff;
     position: absolute;
     margin-left: 50%;
+    margin-top: 70px;
     transform: translateX(-50%);
     font-family: Lato;
-    font-size: 66px;
+    font-size: 50px;
+    text-transform: uppercase;
 }
 
 #mainContainer {
