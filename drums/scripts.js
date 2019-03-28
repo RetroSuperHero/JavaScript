@@ -19,7 +19,7 @@ window.onload = function() {
     setEvents();
     //grid = [[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,1,0,0,1,0,0,0],[0,1,0,0,0,0,1,0],[0,0,1,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,0,0,1,0],[0,0,1,0,0,1,0,0],[0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0],[0,0,1,0,1,1,0,0]];
     grid = [[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,1,1],[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,0,0],[0,0,0,0,1,0,1,0],[1,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,0],[0,1,0,0,0,0,0,1],[0,1,0,0,0,0,1,0],[0,0,1,1,0,0,1,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,1,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];
-    taskGrid = [[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,1,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];//WOLNO
+    taskGrid = [[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,1,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];
     showBoxes();
 }
 
@@ -30,6 +30,8 @@ function elementIndex(element) {
 }
 
 function submit() {
+    console.log(JSON.stringify(taskGrid));
+    console.log(JSON.stringify(grid));
     if(JSON.stringify(grid) === JSON.stringify(taskGrid))
         window.alert("Udało Ci się!");
     else 
@@ -160,7 +162,10 @@ function setEvents() {
         var i = columnsArray.findIndex(elementIndex, this.parentNode); 
         var j = (boxesArray.findIndex(elementIndex, this))%instrumentsNumber; 
         box.querySelector('.inner').classList.toggle(instruments[j]);
-        grid[i][j] = !grid[i][j];
+        if(grid[i][j] == 1)
+            grid[i][j] = 0;
+        else
+            grid[i][j] = 1;
         if(!playing) {
             playSound(instruments[j]);
         }
@@ -173,7 +178,10 @@ function setEvents() {
             var i = columnsArray.findIndex(elementIndex, this.parentNode); 
             var j = (boxesArray.findIndex(elementIndex, this))%instrumentsNumber; 
             box.querySelector('.inner').classList.toggle(instruments[j]);
-            grid[i][j] = !grid[i][j];
+            if(grid[i][j] == 1)
+                grid[i][j] = 0;
+            else
+                grid[i][j] = 1;
             if(!playing) {
                 playSound(instruments[j]);
             }
@@ -226,7 +234,7 @@ function setEvents() {
 function restartGrid() {
     for(var i=0;i<columnsNumber;++i) {
         for(var j=0;j<instrumentsNumber;++j) {
-            grid[i][j] = false;
+            grid[i][j] = 0;
         }
     }
     showBoxes();
@@ -252,7 +260,7 @@ function randomGrid() {
     for(var i=0;i<columnsNumber;++i) {
         for(var j=0;j<instrumentsNumber;++j) {
             if(!parseInt(Math.random()*currRandom)) {
-                grid[i][j] = true;
+                grid[i][j] = 1;
             }
         }
     }
