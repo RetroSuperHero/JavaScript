@@ -33,6 +33,11 @@ function submit() {
     window.alert(JSON.stringify(grid) === JSON.stringify(taskGrid));
 }
 
+function showTask() {
+    grid = taskGrid;
+    showBoxes();
+}
+
 //Funkcja odtwarzająca dzwięki
 function playSound(sound) {
     const audio = document.querySelector(`audio[data-instrument="${sound}"]`);
@@ -190,6 +195,9 @@ function setEvents() {
     
     const submitBtn = document.querySelector('.submit');
     submitBtn.addEventListener('click', submit);
+    
+    const showTaskBtn = document.querySelector('.showTask');
+    showTaskBtn.addEventListener('click', showTask);
     
     function changeRandom() {
         if(mouseDown) {
