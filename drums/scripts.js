@@ -9,7 +9,7 @@ let currRandom = 6;
 
 let columnsArray;
 let boxesArray;
-let grid;
+let noo;
 let interval;
 
 //Inicjalizowanie pola
@@ -17,9 +17,8 @@ window.onload = function() {
     generateHtml();
     setArrays();
     setEvents();
-    //grid = [[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,1,0,0,1,0,0,0],[0,1,0,0,0,0,1,0],[0,0,1,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,0,0,1,0],[0,0,1,0,0,1,0,0],[0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,0],[0,0,0,0,0,1,0,0],[0,0,1,0,1,1,0,0]];
-    grid = [[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,1,1],[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,0,0],[0,0,0,0,1,0,1,0],[1,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,0],[0,1,0,0,0,0,0,1],[0,1,0,0,0,0,1,0],[0,0,1,1,0,0,1,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,1,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];
-    taskGrid = [[0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1,0],[0,0,0,0,1,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1],[0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];
+    noo = [[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,1,1],[0,0,0,1,0,0,0,0],[1,0,0,0,0,0,0,0],[0,0,0,0,1,0,1,0],[1,0,0,0,0,1,0,0],[0,0,0,1,0,0,0,0],[0,1,0,0,0,0,0,1],[0,1,0,0,0,0,1,0],[0,0,1,1,0,0,1,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,1,0,1,0,0],[0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0]];
+    nooo = [[0,0,0,0,1,0,0,0],[0,0,0,0,0,0,1,0],[1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1],[0,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
     showBoxes();
 }
 
@@ -30,18 +29,13 @@ function elementIndex(element) {
 }
 
 function submit() {
-    console.log(JSON.stringify(taskGrid));
-    console.log(JSON.stringify(grid));
-    if(JSON.stringify(grid) === JSON.stringify(taskGrid))
-        window.alert("Udało Ci się!");
-    else 
-        window.alert("Spróbuj jeszcze raz!");
-}
-
-function showTask() {
-    for (let i=0; i <grid.length; i++)
-        grid[i] = taskGrid[i].slice();
-    showBoxes();
+    if(JSON.stringify(noo) === JSON.stringify(nooo)) {
+        document.getElementById("success").style.display = "block";
+        document.getElementsByClassName("showTask")[0].textContent = "ZGADŁEŚ!";
+    } else { 
+        document.getElementById("success").style.display = "none";
+        document.getElementsByClassName("showTask")[0].textContent = "PRÓBUJ DALEJ!";
+    }
 }
 
 //Funkcja odtwarzająca dzwięki
@@ -61,7 +55,7 @@ function taskPlay() {
         let start = 0;
         interval = setInterval(function() {
             for(var i=0;i<instrumentsNumber;++i) {
-                if(taskGrid[start][i]) {
+                if(nooo[start][i]) {
                     playSound(instruments[i]);
                 }
             }
@@ -96,7 +90,7 @@ function playMusic() {
             }
             nowPlaying(start);
             for(var i=0;i<instrumentsNumber;++i) {
-                if(grid[start][i]) {
+                if(noo[start][i]) {
                     playSound(instruments[i]);
                 }
             }
@@ -162,10 +156,10 @@ function setEvents() {
         var i = columnsArray.findIndex(elementIndex, this.parentNode); 
         var j = (boxesArray.findIndex(elementIndex, this))%instrumentsNumber; 
         box.querySelector('.inner').classList.toggle(instruments[j]);
-        if(grid[i][j] == 1)
-            grid[i][j] = 0;
+        if(noo[i][j] == 1)
+            noo[i][j] = 0;
         else
-            grid[i][j] = 1;
+            noo[i][j] = 1;
         if(!playing) {
             playSound(instruments[j]);
         }
@@ -178,10 +172,10 @@ function setEvents() {
             var i = columnsArray.findIndex(elementIndex, this.parentNode); 
             var j = (boxesArray.findIndex(elementIndex, this))%instrumentsNumber; 
             box.querySelector('.inner').classList.toggle(instruments[j]);
-            if(grid[i][j] == 1)
-                grid[i][j] = 0;
+            if(noo[i][j] == 1)
+                noo[i][j] = 0;
             else
-                grid[i][j] = 1;
+                noo[i][j] = 1;
             if(!playing) {
                 playSound(instruments[j]);
             }
@@ -208,9 +202,6 @@ function setEvents() {
     const submitBtn = document.querySelector('.submit');
     submitBtn.addEventListener('click', submit);
     
-    const showTaskBtn = document.querySelector('.showTask');
-    showTaskBtn.addEventListener('click', showTask);
-    
     function changeRandom() {
         if(mouseDown) {
             currRandom = 16 - this.value;
@@ -234,7 +225,7 @@ function setEvents() {
 function restartGrid() {
     for(var i=0;i<columnsNumber;++i) {
         for(var j=0;j<instrumentsNumber;++j) {
-            grid[i][j] = 0;
+            noo[i][j] = 0;
         }
     }
     showBoxes();
@@ -245,7 +236,7 @@ function showBoxes() {
     for(var i=0;i<columnsNumber;++i) {
         for(var j=0;j<instrumentsNumber;++j) {
             nowPlaying(i,true);
-            if(grid[i][j]) {
+            if(noo[i][j]) {
                 boxesArray[instrumentsNumber*i+j].querySelector('.inner').classList.add(instruments[j]);
             } else {
                 boxesArray[instrumentsNumber*i+j].querySelector('.inner').classList.remove(instruments[j]);
@@ -260,7 +251,7 @@ function randomGrid() {
     for(var i=0;i<columnsNumber;++i) {
         for(var j=0;j<instrumentsNumber;++j) {
             if(!parseInt(Math.random()*currRandom)) {
-                grid[i][j] = 1;
+                noo[i][j] = 1;
             }
         }
     }
@@ -282,7 +273,7 @@ function nowPlaying(id, remove = false) {
             boxesArray[index].classList.remove('nowPlaying');
             boxesArray[index].querySelector('.inner').classList.remove('bigger');
             var aaa = document.querySelectorAll('.sound');
-            if(grid[id][i] && playing)
+            if(noo[id][i] && playing)
                 aaa[i].querySelector('div').classList.add('fullBar');
         } else {
             boxesArray[index].classList.toggle('nowPlaying');

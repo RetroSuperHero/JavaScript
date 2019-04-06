@@ -94,6 +94,7 @@ h1 {
 }
 
 .buttonName {
+    width: 100%;
     font-size: 2.5vh;
     top: 50%;
     left: 50%;
@@ -201,4 +202,19 @@ input[type=range]::-webkit-slider-thumb {
     width: 15px;
     height: 17px;
     transition: ease .5s;
+}
+
+.number {
+    float: left;
+    margin-left: 15px;
+}
+
+#success {
+    color: #fff;
+    font-family: Lato;
+    font-size: 40px;
+    position: absolute;
+    left: 30%;
+    top: 3vw;
+    display: none;
 }
